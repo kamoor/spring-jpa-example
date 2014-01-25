@@ -1,4 +1,5 @@
-This module will have all the core value objects.
+Description: This module will have all the core value objects.
+Version: 1.0
 
 
 
