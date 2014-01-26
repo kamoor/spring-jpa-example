@@ -13,11 +13,12 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nube.core.instance.dto.Instance;
+import com.nube.core.instance.repository.InstanceRepository;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
+//@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 @ActiveProfiles("default")
 // @Ignore
 public class InstanceDaoTest {
@@ -43,17 +44,6 @@ public class InstanceDaoTest {
 
 	}
 
-	/**
-	 * Test Instance.Save Option
-	 */
-	@Test
-	@Transactional
-	public void testSystemUpdate() {
-
-		Instance data = new Instance("test.key.1", "test.value.2");
-
-		instanceDao.save(data);
-
-	}
+	
 
 }

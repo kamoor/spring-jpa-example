@@ -9,7 +9,10 @@
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<context:component-scan base-package="com.nube" />
+	<jpa:repositories base-package="com.nube" />
+	
 
+	
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${db.driver}" />
@@ -34,8 +37,15 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!--  This bean will help run sql scripts -->
+	<bean id="resourceDatabasePopulator" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+		<property name="separator" value=";" />
+	</bean>
+	
 
-	<jpa:repositories base-package="${orm.repoBasePkg}" />
+	
 
 
 </beans>

@@ -1,30 +1,44 @@
 package com.nube.core.instance.dao;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.repository.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.nube.core.instance.dto.Instance;
+import com.nube.core.instance.repository.InstanceRepository;
 
 /**
- * Store Instance specific data. Basically this will be a key value pair
- * 
+ * Instance DAO to get/save/delete to INSTANCE table
  * @author kamoorr
- * 
+ *
  */
-
-@Transactional
-public interface InstanceDao extends Repository<Instance, String> {
-
-	@Cacheable("Instances")
-	Iterable<Instance> findAll();
-
-	@CacheEvict("Instances")
-	void delete(Instance instance);
-
-	@CacheEvict("Instances")
-	Instance save(Instance instance);
+@Component
+public class InstanceDao {
+	
+	@Autowired
+	InstanceRepository instanceRepository;
+	
+	
+	public Instance getInstance(String key){
+		List<Instance> allRows=  instanceRepository.findAll();
+		int index = allRows.indexOf(new Instance(key, null));
+		if(index > -1){
+			return allRows.get(index);
+		}
+		return null;
+	}
+	
+	public List<Instance> getInstances(){
+		return instanceRepository.findAll();
+	}
+	
+	public Instance save(Instance instance){
+		return instanceRepository.save(instance);
+	}
+	
+	public void delete(Instance instance){
+		instanceRepository.delete(instance);
+	}
 
 }

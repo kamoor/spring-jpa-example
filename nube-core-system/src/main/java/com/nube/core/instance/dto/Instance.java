@@ -43,6 +43,10 @@ public class Instance implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "LAST_UPDATED_DT", nullable = false, columnDefinition="DATE default CURRENT_DATE", insertable=false, updatable=false)
 	private Date lastModifiedDate;
+	
+	
+	@Column(name = "DESCR", nullable = true, length=1000)
+	private String descr;
 
 	public String getKey() {
 		return key;
@@ -66,6 +70,18 @@ public class Instance implements Serializable {
 
 	public void setLastModifiedDate(Date lastModifiedDate) {
 		this.lastModifiedDate = lastModifiedDate;
+	}
+	
+	
+
+	
+
+	public String getDescr() {
+		return descr;
+	}
+
+	public void setDescr(String descr) {
+		this.descr = descr;
 	}
 
 	@Override
