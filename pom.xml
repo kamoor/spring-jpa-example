@@ -13,11 +13,13 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.0.RELEASE</spring.version>
+		<springdata.version>1.4.1.RELEASE</springdata.version>
 		<hibernate.version>4.3.1.Final</hibernate.version>
 		<ehcache.version>2.6.5</ehcache.version>
 		<log4j.version>1.0</log4j.version>
 		<slf4j.version>1.7.5</slf4j.version>
-		<junit.version>3.8.1</junit.version>
+		<junit.version>4.11</junit.version>
+		<ojdbc.version>11.2.0.2.0</ojdbc.version>
 	</properties>
 	
 	<modules>
@@ -55,7 +57,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring.version}</version>
+			<version>${springdata.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -78,6 +80,18 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${ojdbc.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
