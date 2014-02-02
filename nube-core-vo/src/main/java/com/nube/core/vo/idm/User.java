@@ -3,6 +3,7 @@ package com.nube.core.vo.idm;
 import java.util.List;
 import java.util.ArrayList;
 
+
 import com.nube.core.vo.common.Attribute;
 
 /**
@@ -11,16 +12,18 @@ import com.nube.core.vo.common.Attribute;
  * @author kamoorr
  * 
  */
+
 public class User {
 
 	private int id;
+	private String context;
 	private String userName;
 	private String firstName;
 	private String middleName;
 	private String lastName;
 	private String email;
 	private UserStatus status;
-	private IdmSource idmSouce;
+	private IdmSource idmSource;
 
 	private String cellPhone;
 	private String homePhone;
@@ -31,6 +34,8 @@ public class User {
 
 	private java.util.List<Attribute> attributes;
 
+	
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -87,12 +92,12 @@ public class User {
 		this.status = status;
 	}
 
-	public IdmSource getIdmSouce() {
-		return idmSouce;
+	public IdmSource getIdmSource() {
+		return idmSource;
 	}
 
-	public void setIdmSouce(IdmSource idmSouce) {
-		this.idmSouce = idmSouce;
+	public void setIdmSource(IdmSource idmSource) {
+		this.idmSource = idmSource;
 	}
 
 	public String getCellPhone() {

@@ -10,7 +10,8 @@
 
 	<context:component-scan base-package="com.nube" />
 	<jpa:repositories base-package="com.nube" />
-	
+	 <!-- JSR-303 support will be detected on classpath and enabled automatically -->
+    <context:annotation-config />
 
 	
 	<bean id="dataSource"
@@ -20,7 +21,8 @@
 		<property name="username" value="${db.username}" />
 		<property name="password" value="${db.password}" />
 	</bean>
-
+    
+   
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />

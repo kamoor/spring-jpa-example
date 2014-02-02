@@ -7,7 +7,7 @@
 
    <!--  <import resource="classpath*:cache-config.xml" />
     -->
-    <import resource="classpath*:spring-nube-core-system-config.xml" />
+    <import resource="classpath*:spring/*.xml" />
    
 	<context:property-placeholder
 		ignore-resource-not-found="true" ignore-unresolvable="true"
